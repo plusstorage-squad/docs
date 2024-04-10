@@ -1,5 +1,5 @@
 ---
-title: "Anlegen von Buckets mit der AWS CLI - Alternativ mit Aktivierung von Object Lock"
+title: "Anlegen von Buckets mit der AWS CLI - Optional mit Aktivierung von Object Lock"
 linkTitle: "Anlegen von Buckets"
 type: "docs"
 weight: 20
@@ -9,9 +9,9 @@ date: "2024-02-07"
 Die AWS CLI ermöglicht es Ihnen, komfortabel über die Kommandozeile mit Ihren plusserver S3-Ressourcen zu interagieren. Folgen Sie den Schritten unten, um Buckets anzulegen und gegebenenfalls Object Lock zu aktivieren.
 
 {{% alert title="Info" %}}
-Achtung nur bei der initialen Bucket Erstellung kann man Object Lock aktivieren. Ein Nachträgliches aktiveren oder ausschalten von Objekt lock auf ein schon bestehendes Bucket ist technologisch nicht möglich.
+Achtung: Nur bei der initialen Bucket-Erstellung kann man Object Lock aktivieren. Ein nachträgliches Aktivieren oder Ausschalten von Object Lock in einem bereits bestehenden Bucket ist technologisch nicht möglich.
 
-**WICHTIG:** Sollten sie doch einmal nachträglich Object Lock für ein schon erstelltes Bucket ein oder ausschalten wollen, müssen sie ein neues Bucket mit ihrer Object Lock Einstellung erstellen und dann alle Objekt Daten vom alten Bucket in dieses neue Bucket umkopieren.
+**WICHTIG:** Sollten Sie doch einmal nachträglich Object Lock fpr ein bereits erstelltes Bucket ein oder ausschalten wollen, müssen Sie ein neues Bucket mit Ihrer Object-Lock-Einstellung erstellen und dann alle Object-Daten vom alten Bucket in dieses neue Bucket kopieren.
 {{% /alert %}}
 
 ### Schritt 1: Anlegen eines Buckets
@@ -26,7 +26,7 @@ aws s3api create-bucket --bucket mynewbucket --endpoint-url=https://s3.de-west-1
 ```
 
 {{% alert title="Info" %}}
-Jeder S3-Bucket Name muss eindeutig sein und darf nur einmal global im plusserver S3 Service existieren – nicht nur pro Kunde, sondern innerhalb der gesamten plusserver S3 Umgebung.
+Jeder S3-Bucket-Name muss eindeutig sein und darf nur einmal global im plusserver S3 Service existieren – nicht nur pro Kunde, sondern innerhalb der gesamten plusserver S3-Umgebung.
 Wenn der gewählte Name bereits von irgendeinem Kunden in Verwendung ist, wird Ihnen die folgende Fehlermeldung angezeigt:
 ```bash
 An error occurred (BucketAlreadyOwnedByYou) when calling the CreateBucket operation: Your previous request to create the named bucket succeeded and you already own it.
@@ -81,7 +81,7 @@ aws s3api get-object-lock-configuration --bucket <bucketname> --endpoint-url=htt
 ```
 Dieser Befehl gibt Auskunft darüber, ob Object Lock für das angegebene Bucket aktiviert ist.
 
-Beispielausgabe bei aktiviertem Objekt-Lock:
+Beispielausgabe bei aktiviertem Object Lock:
 ```bash
 {
     "ObjectLockConfiguration": 
@@ -90,7 +90,7 @@ Beispielausgabe bei aktiviertem Objekt-Lock:
     }
 }
 ```
-Beispielausgabe bei nicht aktiviertem Objekt-Lock:
+Beispielausgabe bei nicht aktiviertem Object Lock:
 ```bash
 An error occurred (ObjectLockConfigurationNotFoundError) when calling the GetObjectLockConfiguration operation: Object Lock configuration does not exist for this bucket
 ```

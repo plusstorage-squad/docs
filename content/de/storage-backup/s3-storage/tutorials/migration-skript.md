@@ -22,7 +22,7 @@ In diesem Schritt erfahren Sie, wie Sie das Migrationsskript auf einem Server ve
 
 **Ausführbar machen:** Verleihen Sie dem Skript Ausführungsrechte, damit es ausgeführt werden kann. Verwenden Sie dazu den Befehl chmod u+x plusserver_transfer_skript.sh.
 
-Nutzung des Skripts:
+**Nutzung des Skripts:**
 
 Das Migrationsskript unterstützt verschiedene Parameter, die es Ihnen ermöglichen, die Datenübertragung nach Ihren Anforderungen anzupassen. Hier sind die Schritte, um das Skript zu verwenden:
 
@@ -36,6 +36,7 @@ old_s3,bucket1,new_s3,bucketA
 old_s3,bucket2,new_s3,bucketB
 ```
 (Beispiel für eine CSV-Datei mit Quell- und Zielkombinationen)
+
 Im Idealfall nennen Sie dieses buckets.csv. Sollten Sie einen anderen Namen wählen, so müssen Sie diesen via Parameter beim Skript angeben.
 
 3. **Datenübertragung starten:** Führen Sie den Befehl ./plusserver_transfer_skript.sh -f CSV_DATEI aus, um die Datenübertragung zu starten. Ersetzen Sie CSV_DATEI durch den Pfad zur vorbereiteten CSV-Datei. Das Skript wird die Übertragung zwischen den angegebenen Speicherzielen durchführen. Führen Sie das Skript ohne den -f Parameter aus, so wird Default die buckets.csv verwendet.

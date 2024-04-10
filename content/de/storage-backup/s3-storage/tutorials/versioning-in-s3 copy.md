@@ -86,9 +86,9 @@ Wählen Sie die gewünschte Versions-ID aus der angezeigten Liste.
 
 Verwenden Sie die Versions-ID, um eine bestimmte Version des Objekts herunterzuladen:
 
-bash
-
+```bash
 aws s3 cp s3://<bucketname>/<ziel-dateipfad>?versionId=<versions-id> <lokaler-dateipfad> --endpoint-url=https://<endpoint>
+```
 
 * \<bucketname>: Der Name des Buckets.
 * \<ziel-dateipfad>: Der Speicherort und Name des Objekts im Bucket.
@@ -97,13 +97,13 @@ aws s3 cp s3://<bucketname>/<ziel-dateipfad>?versionId=<versions-id> <lokaler-da
 
 Durch die Kombination von Object Lock und automatischem Versioning haben Sie die Möglichkeit, auf frühere Zustände von Objekten zuzugreifen und Ihre Daten vor versehentlichen Änderungen zu schützen.
 
-## Schritt 5: Löschen von Objekten mit Versionierung
+## Schritt 5: Löschen von Objekten mit Versioning
 
-Beim PlusServer S3-Service kann das Löschen von Objekten je nach Versionierungseinstellungen etwas komplexer sein. Hier erläutern wir Ihnen, wie Sie Objekte mit Versionierung korrekt löschen können.
+Beim plusserver S3-Service kann das Löschen von Objekten je nach Versioning-Einstellungen etwas komplexer sein. Hier erläutern wir Ihnen, wie Sie Objekte mit Versioning korrekt löschen können.
 
 ### Verwendung von Variablen
 
-Um Objekte in einem versionierten Bucket zu löschen, können Sie den folgenden Befehl verwenden:
+Um Objekte in einem Bucket mit aktiviertem Versioning zu löschen, können Sie den folgenden Befehl verwenden:
 
 ```bash
 aws s3api delete-objects --bucket "<bucketname>" --delete "$(aws s3api list-object-versions --bucket "<bucketname>" --output=json | jq '{Objects: [.Versions[] | {Key: .Key, VersionId: .VersionId}], Quiet: false}')"

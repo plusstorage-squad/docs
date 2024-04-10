@@ -8,7 +8,7 @@ date: "2024-02-06"
 
 ### Was ist eine plusserver S3 Region?
 
-Die PlusServer S3-Infrastruktur erlaubt die Erstellung von Buckets mit speziellen regionalen Eigenschaften.
+Die plusserver S3-Infrastruktur erlaubt die Erstellung von Buckets mit speziellen regionalen Eigenschaften.
 Der Begriff "Region" bezieht sich auf den physischen Standort, an dem Ihre Daten gespeichert werden. Die entsprechenden Standorte finden Sie in der folgenden Tabelle.
 
 
